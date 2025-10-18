@@ -4,9 +4,6 @@
   "devCommand": "yarn dev --turbo",
   "installCommand": "yarn install",
   "outputDirectory": ".next",
-  "env": {
-    "DATABASE_URL": "file:./dev.db"
-  },
   "functions": {
     "app/api/**": {
       "maxDuration": 30
