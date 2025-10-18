@@ -1,0 +1,47 @@
+// Emergency Prisma schema for Vercel deployment
+// Uses hardcoded SQLite URL as fallback
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Consultation {
+  id                 Int      @id @default(autoincrement())
+  
+  // Patient Information
+  name               String
+  age                Int
+  gender             String?
+  phone              String?
+  height             Float?    // height in cm
+  weight             Float?    // weight in kg
+  bmi                Float?    // body mass index
+  
+  // Complaints
+  complaints         String?
+  
+  // Examinations (checkboxes)
+  examination_oglyad Boolean  @default(false)
+  examination_xray   Boolean  @default(false)
+  examination_uzi    Boolean  @default(false)
+  examination_kt     Boolean  @default(false)
+  examination_mrt    Boolean  @default(false)
+  
+  // Medical History
+  has_chronic_diseases Boolean @default(false)
+  chronic_diseases     String?
+  takes_medications    Boolean @default(false)
+  medications          String?
+  pain_scale           Int?
+  
+  // Comments
+  additional_comments  String?
+  
+  // System fields
+  createdAt          DateTime @default(now())
+}
