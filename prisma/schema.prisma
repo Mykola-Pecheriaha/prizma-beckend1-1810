@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Consultation {
+  id                 Int      @id @default(autoincrement())
+  
+  // Пацієнт
+  name               String
+  age                Int
+  gender             String?
+  phone              String?
+  height             Float?    // ріст в см
+  weight             Float?    // вага в кг
+  bmi                Float?    // індекс маси тіла
+  
+  // Скарги
+  complaints         String?
+  
+  // Обстеження (чекбокси)
+  examination_oglyad Boolean  @default(false)
+  examination_xray   Boolean  @default(false)
+  examination_uzi    Boolean  @default(false)
+  examination_kt     Boolean  @default(false)
+  examination_mrt    Boolean  @default(false)
+  
+  // Медична історія
+  has_chronic_diseases Boolean @default(false)
+  chronic_diseases     String?
+  takes_medications    Boolean @default(false)
+  medications          String?
+  pain_scale           Int?
+  
+  // Коментарі
+  additional_comments  String?
+  
+  // Системне
+  createdAt          DateTime @default(now())
+}
