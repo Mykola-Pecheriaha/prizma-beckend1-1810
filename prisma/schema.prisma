@@ -1,3 +1,6 @@
+// This file defines the database schema for the medical consultation system
+// Updated for Vercel deployment with SQLite
+
 generator client {
   provider = "prisma-client-js"
 }
