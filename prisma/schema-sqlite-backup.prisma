@@ -1,14 +1,13 @@
-// Medical Consultation System - PostgreSQL Schema for Vercel
-// This schema works with Vercel Postgres Database
+// Medical Consultation System Database Schema
+// Compatible with Vercel deployment using SQLite
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
-  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
 }
 
 model Consultation {
