@@ -1,0 +1,25 @@
+{
+  "version": 1.1,
+  "atDirectives": [
+    {
+      "name": "@theme",
+      "description": "Tailwind CSS v4.0 theme configuration directive"
+    },
+    {
+      "name": "@import",
+      "description": "Import CSS files or modules"
+    },
+    {
+      "name": "@apply",
+      "description": "Apply Tailwind utility classes"
+    },
+    {
+      "name": "@layer",
+      "description": "Define Tailwind CSS layers (base, components, utilities)"
+    },
+    {
+      "name": "@config",
+      "description": "Tailwind CSS configuration directive"
+    }
+  ]
+}

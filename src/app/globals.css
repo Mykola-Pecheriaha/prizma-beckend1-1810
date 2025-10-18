@@ -1,10 +1,15 @@
 @import 'tailwindcss';
 
+/* CSS Custom Properties для теми */
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --color-background: #ffffff;
+  --color-foreground: #171717;
 }
 
+/* Tailwind CSS v4.0 theme configuration */
+/* @theme is a Tailwind CSS v4.0 directive */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

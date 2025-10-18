@@ -1,0 +1,16 @@
+{
+  "css.validate": false,
+  "css.lint.unknownAtRules": "ignore",
+  "css.customData": [".vscode/css-custom-data.json"],
+  "tailwindCSS.experimental.classRegex": [
+    ["tw`([^`]*)", "'([^']*)'"],
+    ["tw=\"([^\"]*)"]
+  ],
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact"
+  }
+}
