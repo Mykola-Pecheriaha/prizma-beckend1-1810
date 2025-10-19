@@ -27,9 +27,38 @@ interface ConsultationItem {
 }
 
 export default async function AdminPage() {
-  const data = await prisma.consultation.findMany({
+  let data: ConsultationItem[] = []
+  let error: string | null = null
+
+  try {
+    data = await prisma.consultation.findMany({
     orderBy: { createdAt: 'desc' },
   })
+  } catch (e) {
+    console.error('Database connection error:', e)
+    error = 'Не вдалося підключитися до бази даних. Перевірте налаштування PostgreSQL на Vercel.'
+  }
+
+  // Show error message if database connection failed
+  if (error) {
+    return (
+      <div className="mx-auto max-w-6xl p-6">
+        <div className="mb-6">
+          <h1 className="text-3xl font-bold text-red-600">Помилка підключення</h1>
+          <p className="text-gray-600 mt-4">{error}</p>
+          <div className="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+            <h3 className="text-lg font-semibold text-yellow-800">Що робити:</h3>
+            <ol className="mt-2 text-yellow-700 list-decimal list-inside space-y-1">
+              <li>Створіть PostgreSQL базу даних у Vercel Dashboard</li>
+              <li>Підключіть базу до проекту</li>
+              <li>Перевірте Environment Variables</li>
+              <li>Редеплойте проект</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="mx-auto max-w-6xl p-6">

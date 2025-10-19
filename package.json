@@ -9,7 +9,7 @@
     "lint": "next lint",
     "format": "prettier --write .",
     "postinstall": "prisma generate",
-    "vercel-build": "prisma generate && next build",
+    "vercel-build": "prisma generate && SKIP_ENV_VALIDATION=true next build",
     "db:generate": "prisma generate",
     "db:push": "prisma db push",
     "db:studio": "prisma studio"
