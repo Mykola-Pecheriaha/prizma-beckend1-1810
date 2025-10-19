@@ -7,15 +7,18 @@
 ## ⚡ **3 КРОКИ = 5 ХВИЛИН:**
 
 ### **1️⃣ СТВОРИТИ БАЗУ**
+
 - Vercel → Storage → Create Database → Postgres
 - Назва: `medical` (будь-яка)
 - Create
 
 ### **2️⃣ ПІДКЛЮЧИТИ**
+
 - База → Settings → Connect Project → `prizma-beckend1-1810`
 - Connect
 
 ### **3️⃣ РЕДЕПЛОЙ**
+
 - Проект → Deployments → Redeploy (БЕЗ кешу!)
 - Очікувати 5 хвилин
 
