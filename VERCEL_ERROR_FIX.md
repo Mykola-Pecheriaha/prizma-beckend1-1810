@@ -1,6 +1,7 @@
 # 🚨 ВИПРАВЛЕННЯ ПОМИЛКИ VERCEL
 
 ## ❌ **Помилка:**
+
 ```
 Environment variable not found: POSTGRES_PRISMA_URL
 ```
@@ -14,6 +15,7 @@ Environment variable not found: POSTGRES_PRISMA_URL
 ## 🔧 **ЗРОБІТЬ ЗАРАЖ:**
 
 ### **Крок 1: Створіть PostgreSQL базу**
+
 1. **У Vercel Dashboard** → **Storage** (верхнє меню)
 2. **Create Database** → **PostgreSQL**
 3. **Database Name**: `medical-app-db`
@@ -21,6 +23,7 @@ Environment variable not found: POSTGRES_PRISMA_URL
 5. **Create**
 
 ### **Крок 2: Підключіть базу до проекту**
+
 1. **Кликніть на створену базу**
 2. **Вкладка "Settings"**
 3. **Scroll down** до "Connected Projects"
@@ -29,6 +32,7 @@ Environment variable not found: POSTGRES_PRISMA_URL
 6. **Connect**
 
 ### **Крок 3: Перевірте змінні середовища**
+
 1. **Поверніться до проекту**: Dashboard → Projects → `prizma-beckend1-1810`
 2. **Settings** → **Environment Variables**
 3. **Переконайтеся що є**:
@@ -36,6 +40,7 @@ Environment variable not found: POSTGRES_PRISMA_URL
    - ✅ `POSTGRES_URL_NON_POOLING`
 
 ### **Крок 4: Редеплойте**
+
 1. **Deployments** → **три крапки** біля останнього
 2. **Redeploy**
 3. ❌ **Зніміть галочку** "Use existing Build Cache"
@@ -79,7 +84,7 @@ Environment variable not found: POSTGRES_PRISMA_URL
 ✅ **Збірка пройде успішно**  
 ✅ **Сайт буде доступний**  
 ✅ **База даних працюватиме**  
-✅ **Всі функції активні**  
+✅ **Всі функції активні**
 
 **URL**: `https://prizma-beckend1-1810-[код].vercel.app`
 

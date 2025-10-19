@@ -11,7 +11,7 @@
 1. 🌐 **Відкрийте Vercel Dashboard**: https://vercel.com/dashboard
 2. 📁 **Оберіть ваш проект**: `prizma-beckend1-1810`
 3. 🗃️ **Перейдіть до Storage**: верхнє меню → **Storage**
-4. ➕ **Create Database**: 
+4. ➕ **Create Database**:
    - Оберіть **"Postgres"**
    - Database Name: `prizma-beckend1810-db`
    - Region: оберіть найближчий
@@ -22,6 +22,7 @@
 1. ⚙️ **Після створення бази** натисніть на неї
 2. 📋 **Вкладка ".env.local"** → **Copy Snippet**
 3. 📝 **Ви отримаєте щось таке**:
+
 ```bash
 POSTGRES_URL="postgresql://user:pass@host/db"
 POSTGRES_PRISMA_URL="postgresql://user:pass@host/db?pgbouncer=true&connect_timeout=15"
@@ -39,7 +40,7 @@ POSTGRES_DATABASE="db"
 2. ⚙️ **Settings** → **Environment Variables**
 3. ➕ **Додайте ці змінні** (скопійовані з Кроку 2):
    - `POSTGRES_URL`
-   - `POSTGRES_PRISMA_URL` 
+   - `POSTGRES_PRISMA_URL`
    - `POSTGRES_URL_NON_POOLING`
    - `POSTGRES_USER`
    - `POSTGRES_HOST`
@@ -51,17 +52,21 @@ POSTGRES_DATABASE="db"
 ## 🔄 **Крок 4: Оновіть код (НА ВАШОМУ КОМП'ЮТЕРІ)**
 
 ### **1. Замініть схему Prisma:**
+
 ```bash
 cp prisma/schema-postgres.prisma prisma/schema.prisma
 ```
 
 ### **2. Оновіть build команду в package.json:**
+
 Замініть у файлі `package.json`:
+
 ```json
 "vercel-build": "prisma generate && prisma db push && next build"
 ```
 
 ### **3. Запуште зміни:**
+
 ```bash
 git add .
 git commit -m "feat: switch to PostgreSQL for Vercel deployment"
@@ -84,7 +89,7 @@ git push origin main
 ✅ **Таблиці створяться** автоматично  
 ✅ **API працюватиме** з даними  
 ✅ **Форма збереже** консультації  
-✅ **Адмін панель покаже** записи  
+✅ **Адмін панель покаже** записи
 
 ---
 
@@ -94,7 +99,7 @@ git push origin main
 🔐 **Надійність** - управляється Vercel  
 📊 **Масштабованість** - підтримує більше даних  
 🔄 **Connection pooling** - оптимізовані з'єднання  
-📈 **Моніторинг** - вбудована аналітика  
+📈 **Моніторинг** - вбудована аналітика
 
 ---
 
