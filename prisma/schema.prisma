@@ -16,7 +16,7 @@ model Consultation {
   
   // Patient Information
   name               String
-  age                Int
+  age                Int?
   gender             String?
   phone              String?
   height             Float?    // height in cm
@@ -27,11 +27,13 @@ model Consultation {
   complaints         String?
   
   // Examinations (checkboxes)
-  examination_oglyad Boolean  @default(false)
-  examination_xray   Boolean  @default(false)
-  examination_uzi    Boolean  @default(false)
-  examination_kt     Boolean  @default(false)
-  examination_mrt    Boolean  @default(false)
+  examination_oglyad   Boolean  @default(false)
+  examination_analyses Boolean  @default(false)
+  examination_ekg      Boolean  @default(false)
+  examination_xray     Boolean  @default(false)
+  examination_uzi      Boolean  @default(false)
+  examination_kt       Boolean  @default(false)
+  examination_mrt      Boolean  @default(false)
   
   // Medical History
   has_chronic_diseases Boolean @default(false)
@@ -39,6 +41,8 @@ model Consultation {
   takes_medications    Boolean @default(false)
   medications          String?
   pain_scale           Int?
+  has_allergies        Boolean @default(false)
+  allergies            String?
   
   // Comments
   additional_comments  String?

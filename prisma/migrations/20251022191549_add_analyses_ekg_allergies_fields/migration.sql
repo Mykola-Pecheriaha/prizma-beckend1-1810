@@ -1,0 +1,30 @@
+-- CreateTable
+CREATE TABLE "Consultation" (
+    "id" SERIAL NOT NULL,
+    "name" TEXT NOT NULL,
+    "age" INTEGER NOT NULL,
+    "gender" TEXT,
+    "phone" TEXT,
+    "height" DOUBLE PRECISION,
+    "weight" DOUBLE PRECISION,
+    "bmi" DOUBLE PRECISION,
+    "complaints" TEXT,
+    "examination_oglyad" BOOLEAN NOT NULL DEFAULT false,
+    "examination_analyses" BOOLEAN NOT NULL DEFAULT false,
+    "examination_ekg" BOOLEAN NOT NULL DEFAULT false,
+    "examination_xray" BOOLEAN NOT NULL DEFAULT false,
+    "examination_uzi" BOOLEAN NOT NULL DEFAULT false,
+    "examination_kt" BOOLEAN NOT NULL DEFAULT false,
+    "examination_mrt" BOOLEAN NOT NULL DEFAULT false,
+    "has_chronic_diseases" BOOLEAN NOT NULL DEFAULT false,
+    "chronic_diseases" TEXT,
+    "takes_medications" BOOLEAN NOT NULL DEFAULT false,
+    "medications" TEXT,
+    "pain_scale" INTEGER,
+    "has_allergies" BOOLEAN NOT NULL DEFAULT false,
+    "allergies" TEXT,
+    "additional_comments" TEXT,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "Consultation_pkey" PRIMARY KEY ("id")
+);

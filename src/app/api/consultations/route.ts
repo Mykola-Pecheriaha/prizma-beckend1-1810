@@ -19,11 +19,22 @@ export async function POST(req: Request) {
   try {
     const body = await req.json()
 
+    // Обробити масив обстежень
+    const examinationMap = {
+      examination_oglyad: body.examinations?.includes('Огляд') || false,
+      examination_analyses: body.examinations?.includes('Аналізи') || false,
+      examination_ekg: body.examinations?.includes('ЕКГ') || false,
+      examination_xray: body.examinations?.includes('Рентген') || false,
+      examination_uzi: body.examinations?.includes('УЗД') || false,
+      examination_kt: body.examinations?.includes('КТ') || false,
+      examination_mrt: body.examinations?.includes('МРТ') || false,
+    }
+
     await prisma.consultation.create({
       data: {
         // Пацієнт
         name: body.name,
-        age: Number(body.age),
+        age: body.age ? Number(body.age) : null,
         gender: body.gender || null,
         phone: body.phone || null,
         height: body.height ? Number(body.height) : null,
@@ -37,21 +48,19 @@ export async function POST(req: Request) {
         complaints: body.complaints || null,
 
         // Обстеження
-        examination_oglyad: Boolean(body.examination_oglyad),
-        examination_xray: Boolean(body.examination_xray),
-        examination_uzi: Boolean(body.examination_uzi),
-        examination_kt: Boolean(body.examination_kt),
-        examination_mrt: Boolean(body.examination_mrt),
+        ...examinationMap,
 
         // Медична історія
-        has_chronic_diseases: body.has_chronic_diseases === 'yes',
-        chronic_diseases: body.chronic_diseases || null,
-        takes_medications: body.takes_medications === 'yes',
+        has_chronic_diseases: Boolean(body.hasChronicDiseases),
+        chronic_diseases: body.chronicDiseases || null,
+        takes_medications: Boolean(body.takesMedications),
         medications: body.medications || null,
-        pain_scale: body.pain_scale ? Number(body.pain_scale) : null,
+        pain_scale: body.painLevel ? Number(body.painLevel) : null,
+        has_allergies: Boolean(body.hasAllergy),
+        allergies: body.allergies || null,
 
         // Коментарі
-        additional_comments: body.additional_comments || null,
+        additional_comments: body.additionalNotes || null,
       },
     })
 
